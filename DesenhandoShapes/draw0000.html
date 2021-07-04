@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ </head>
+ <body>
+  <div class="hidden">
+<pre class="brush: html notranslate">&lt;html&gt;
+ &lt;body onload="draw();"&gt;
+   &lt;canvas id="canvas" width="150" height="150"&gt;&lt;/canvas&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<pre class="brush: js notranslate">function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext) {
+    var ctx = canvas.getContext('2d');
+
+    ctx.beginPath();
+    ctx.arc(75, 75, 50, 0, Math.PI * 2, true); // Círculo exterior
+    ctx.moveTo(110, 75);
+    ctx.arc(75, 75, 35, 0, Math.PI, false);  // Boca (sentido horário)
+    ctx.moveTo(65, 65);
+    ctx.arc(60, 65, 5, 0, Math.PI * 2, true);  // Olho esquerdo
+    ctx.moveTo(95, 65);
+    ctx.arc(90, 65, 5, 0, Math.PI * 2, true);  // Olho direito
+    ctx.stroke();
+  }
+}
+</pre>
+
+<p>O resultado aparece como:</p>
+
+<p>{{EmbedLiveSample("Desenhando", 160, 160, "https://mdn.mozillademos.org/files/252/Canvas_smiley.png")}}</p>
+
+<p>Se você não gosta de ver linhas conectadas, você pode remover as linhas que chamam a função <code>moveTo()</code>.</p>
+
+<div class="note">
+<p><strong>Nota:</strong> Para aprender mais sobre a função <code>arc()</code>, veja sobre {{anch("Arcos")}}.</p>
+</div>
+
+<h3 id="Linhas">Linhas</h3>
+
+<p>Para desenhar linhas retas, use o método <code>lineTo().</code></p>
+
+<dl>
+ <dt>{{domxref("CanvasRenderingContext2D.lineTo", "lineTo(x, y)")}}</dt>
+ <dd>Desenha uma linha do ponto atual a até a posição especificada por <code>x</code> e <code>y</code>.</dd>
+</dl>
+
+<p>Esse método recebe dois argumentos, <code>x</code> e <code>y</code>, que são as coordenadas do ponto final da linha. O ponto inicial é dependente de caminhos previamente desenhados, onde o ponto final do caminho anterior é o ponto inicial para o seguinte, e assim por diante. O ponto inicial também pode ser alterado usando o método <code>moveTo()</code>.<br>
+ <br>
+ O exemplo abaixo desenha dois triângulos, um preenchido e um delineado.</p>
+
+<div class="hidden">
+<pre class="brush: html notranslate">&lt;html&gt;
+ &lt;body onload="draw();"&gt;
+   &lt;canvas id="canvas" width="150" height="150"&gt;&lt;/canvas&gt;
+ &lt;/body&gt;
+&lt;/html&gt;
+</pre>
+</div>
+
+<pre class="brush: js notranslate">function draw() {
+  var canvas = document.getElementById('canvas');
+  if (canvas.getContext){
+    var ctx = canvas.getContext('2d');
+
+    // Filled triangle
+    ctx.beginPath();
+    ctx.moveTo(25,25);
+    ctx.lineTo(105,25);
+    ctx.lineTo(25,105);
+    ctx.fill();
+
+    // Stroked triangle
+    ctx.beginPath();
+    ctx.moveTo(125,125);
+    ctx.lineTo(125,45);
+    ctx.lineTo(45,125);
+    ctx.closePath();
+    ctx.stroke();
+  }
+}
+</pre>
+ </body>
+</html>
+
+

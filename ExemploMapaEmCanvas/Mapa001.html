@@ -1,0 +1,29 @@
+<DOCTYPE html>
+<html>
+<head>
+    <style type="text/css">
+    body{margin:0; padding:0}
+    #canvasMapa{width:100%; height:100%; border: solid 1px}
+    </style>
+    <script type="text/javascript">
+    window.onload = function(){
+        var canvas = document.getElementById("canvasMapa");
+        var context = canvas.getContext("2d");             
+        var tile = new Image();
+        tile.onload = function(){
+            var i, j;                      
+            for(i=0; i < canvas.height/tile.height; i++){
+                for(j = 0; j < canvas.width/tile.width; j++){    
+                    context.drawImage(tile, i*tile.height, j*tile.width);
+                }
+            }                  
+        };
+            grama.src = "grama.png";
+    };
+    </script>
+</head>
+<body>
+<canvas id="canvasMapa"></canvas>
+</body>
+</html>
+
