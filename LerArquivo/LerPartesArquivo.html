@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Ler Partes Arquivo</title>
+  
+  <link rel="stylesheet" type="text/css" href="style/style.css">
+	
+ </head>
+ <body>
+  
+
+
+<input type="file" id="files" name="file" /> Read bytes: 
+<span class="readBytesButtons">
+  <button data-startbyte="0" data-endbyte="4">1-5</button>
+  <button data-startbyte="5" data-endbyte="14">6-15</button>
+  <button data-startbyte="6" data-endbyte="7">7-8</button>
+  <button>entire file</button>
+</span>
+<div id="byte_range"></div>
+<div id="byte_content"></div>
+
+<script type="text/javascript" src="js/LerPartesArquivo.js"></script>
+
+</body>
+</html>
